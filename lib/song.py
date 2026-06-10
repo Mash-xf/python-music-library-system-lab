@@ -1,28 +1,27 @@
 class Song:
-        """Representation of a song and global song registry.
+    """Representation of a song and global song registry.
 
-        Class responsibilities:
-        - Track per-instance attributes: `name`, `artist`, `genre`.
-        - Maintain class-level aggregates used by the lab tests and by
-            analytics helpers (counts, unique artist/genre lists, and maps).
-        """
+    Responsibilities:
+    - Instance attributes: `name`, `artist`, `genre`.
+    - Class aggregates: `count`, `genres`, `artists`, `genre_count`, `artist_count`.
+    """
 
-        # Total number of Song instances created
-        count = 0
+    # Total number of Song instances created
+    count = 0
 
-        # Unique genres and artists seen across all Song instances
-        genres = []
-        artists = []
+    # Unique genres and artists seen across all Song instances
+    genres = []
+    artists = []
 
-        # Maps used to count how many songs belong to each genre/artist
-        genre_count = {}
-        artist_count = {}
+    # Maps used to count how many songs belong to each genre/artist
+    genre_count = {}
+    artist_count = {}
 
-        # Provide alias `artists_count` as requested by the lab spec
-        artists_count = artist_count
+    # Alias requested by lab: `artists_count` should reference same map
+    artists_count = artist_count
 
-        # Keep references to all created Song instances
-        all = []
+    # Keep references to all created Song instances
+    all = []
 
     def __init__(self, name, artist, genre):
         self.name = name
@@ -32,8 +31,7 @@ class Song:
         # Register this instance in the global list
         Song.all.append(self)
 
-        # Update all class-level aggregates via the helper methods so
-        # behavior is centralized and easy to test.
+        # Update class-level aggregates using helper methods
         Song.add_song_to_count()
         Song.add_to_genres(self.genre)
         Song.add_to_artists(self.artist)
@@ -71,7 +69,6 @@ class Song:
 
     @classmethod
     def add_to_artists_count(cls, artist):
-        # keep both `artist_count` and `artists_count` in sync (they are the same object)
         if artist in cls.artist_count:
             cls.artist_count[artist] += 1
         else:
