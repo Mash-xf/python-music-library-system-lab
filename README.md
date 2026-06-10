@@ -10,7 +10,7 @@ You're tasked with creating a Song class that not only represents individual son
 
 ## Tools & Resources
 
-* [GitHub Repo](https://github.com/learn-co-curriculum/python-music-library-system-lab)
+* [GitHub Repo](https://github.com/lenoxjavan-eng/python-music-library-system-lab)
 * [Python Documentation](https://docs.python.org/3/)
 * [Classes - Python](https://docs.python.org/3/)
 * [Python Class Attributes: An Overly Thorough Guide - Toptal](https://www.toptal.com/python/python-class-attributes-an-overly-thorough-guide)
@@ -126,6 +126,31 @@ Best Practice documentation steps:
 * Delete any stale branches on GitHub
 * Remove unnecessary/commented out code
 * If needed, update git ignore to remove sensitive data
+
+## Demo
+
+Below is a simple demo snapshot showing the `Song` class behavior after
+creating a few instances (this image is illustrative and generated as an
+embedded SVG):
+
+![Song class demo](assets/screenshot.svg)
+
+## Usage
+
+Create songs and inspect class aggregates:
+
+```py
+from song import Song
+
+Song("99 Problems", "Jay Z", "Rap")
+Song("Halo", "Beyonce", "Pop")
+
+print(Song.count)           # total songs
+print(Song.genres)          # unique genres
+print(Song.artists)         # unique artists
+print(Song.genre_count)     # songs per genre
+print(Song.artists_count)   # songs per artist
+```
 
 ## Save your work and push to GitHub
 
