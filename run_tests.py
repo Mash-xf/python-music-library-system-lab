@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
+"""Tiny test runner for the lab tests.
+
+This script runs the tests in `lib/testing/song_test.py` without requiring
+`pytest` to be installed. It preserves the original test ordering so stateful
+tests behave as written in the lab.
+"""
+
 import importlib.util
 import sys
-import types
 from pathlib import Path
 
 TEST_PATH = Path(__file__).parent / 'lib' / 'testing' / 'song_test.py'
 
 spec = importlib.util.spec_from_file_location('song_test', TEST_PATH)
 module = importlib.util.module_from_spec(spec)
+
 # Ensure the project's `lib` directory is on sys.path so `from song import Song` works
 lib_dir = str(Path(__file__).parent / 'lib')
 if lib_dir not in sys.path:
@@ -17,7 +24,7 @@ spec.loader.exec_module(module)
 
 TestSong = getattr(module, 'TestSong')
 
- # Run any method that starts with test_ in source order
+# Run any method that starts with test_ in the order they're declared
 instance = TestSong()
 failures = []
 from song import Song

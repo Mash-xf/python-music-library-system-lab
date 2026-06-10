@@ -1,22 +1,39 @@
 class Song:
-    count = 0
-    genres = []
-    artists = []
-    genre_count = {}
-    artist_count = {}
-    # backward- and forward-compatible naming
-    artists_count = artist_count
+        """Representation of a song and global song registry.
 
-    all = []
+        Class responsibilities:
+        - Track per-instance attributes: `name`, `artist`, `genre`.
+        - Maintain class-level aggregates used by the lab tests and by
+            analytics helpers (counts, unique artist/genre lists, and maps).
+        """
+
+        # Total number of Song instances created
+        count = 0
+
+        # Unique genres and artists seen across all Song instances
+        genres = []
+        artists = []
+
+        # Maps used to count how many songs belong to each genre/artist
+        genre_count = {}
+        artist_count = {}
+
+        # Provide alias `artists_count` as requested by the lab spec
+        artists_count = artist_count
+
+        # Keep references to all created Song instances
+        all = []
 
     def __init__(self, name, artist, genre):
         self.name = name
         self.artist = artist
         self.genre = genre
 
+        # Register this instance in the global list
         Song.all.append(self)
 
-        # use class methods for each update so external callers can use them too
+        # Update all class-level aggregates via the helper methods so
+        # behavior is centralized and easy to test.
         Song.add_song_to_count()
         Song.add_to_genres(self.genre)
         Song.add_to_artists(self.artist)

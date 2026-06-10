@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="240">
+  <rect width="100%" height="100%" fill="#0f172a" />
+  <text x="40" y="60" font-family="Segoe UI, Roboto, sans-serif" font-size="28" fill="#e2e8f0">Song Class Demo</text>
+  <text x="40" y="110" font-family="monospace" font-size="16" fill="#cbd5e1">Count: 5</text>
+  <text x="40" y="140" font-family="monospace" font-size="16" fill="#cbd5e1">Artists: Jay Z, Beyonce, Nirvana, Hall and Oates</text>
+  <text x="40" y="170" font-family="monospace" font-size="16" fill="#cbd5e1">Genres: Rap, Pop, Rock</text>
+  <text x="40" y="200" font-family="monospace" font-size="16" fill="#cbd5e1">Genre counts: {Pop: 3, Rap: 1, Rock: 1}</text>
+</svg>
