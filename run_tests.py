@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-"""Tiny test runner for the lab tests.
-
-This script runs the tests in `lib/testing/song_test.py` without requiring
-`pytest` to be installed. It preserves the original test ordering so stateful
-tests behave as written in the lab.
-"""
 
 import importlib.util
 import sys
